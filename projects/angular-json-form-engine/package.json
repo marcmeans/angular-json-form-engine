@@ -1,0 +1,17 @@
+{
+  "name": "angular-json-form-engine",
+  "version": "0.0.5",
+  "description": "Angular JSON Schema Form Engine",
+  "license": "MIT",
+  "private": false,
+  "peerDependencies": {
+    "@angular/common": ">=6.0.0",
+    "@angular/core": ">=6.0.0",
+    "@angular/forms": ">=6.0.0",
+    "@angular/platform-browser": ">=6.0.0",
+    "@angular/flex-layout": ">=6.0.0-beta.16",
+    "rxjs": ">=6.0.0",
+    "ajv": "^6.0.1",
+    "lodash-es": "^4.17.11"
+  }
+}
