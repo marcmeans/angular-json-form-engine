@@ -190,7 +190,9 @@ export class DemoComponent implements OnInit {
   }
 
   loadSelectedLanguage() {
-    window.location.href = `${window.location.pathname}?set=${this.selectedSet}&example=${this.selectedExample}&framework=${this.selectedFramework}&language=${this.selectedLanguage}`;
+    window.location.href = `
+    ${window.location.pathname}?set=${this.selectedSet}&example=
+    ${this.selectedExample}&framework=${this.selectedFramework}&language=${this.selectedLanguage}`;
   }
 
   // Display the form entered by the user

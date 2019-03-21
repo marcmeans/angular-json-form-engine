@@ -19,7 +19,7 @@ export class AceEditorDirective {
   _autoUpdateContent = true;
   editor: any;
   oldText: any;
-  @Output('textChanged') textChanged = new EventEmitter();
+  @Output() textChanged = new EventEmitter();
 
   constructor(elementRef: ElementRef) {
     const el = elementRef.nativeElement;

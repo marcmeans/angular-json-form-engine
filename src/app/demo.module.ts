@@ -10,17 +10,6 @@ import {
 } from '@angular/material';
 import { RouterModule } from '@angular/router';
 
-
-
-// To include JsonSchemaFormModule after downloading from NPM, use this instead:
-//
-//   import { JsonSchemaFormModule, NoFrameworkModule } from 'angular-json-form-engine';
-//
-// but replace "NoFrameworkModule" with the framework you want to use,
-// then import both JsonSchemaFormModule and the framework module, like this:
-//
-//   imports: [ ... NoFrameworkModule, JsonSchemaFormModule.forRoot(NoFrameworkModule) ... ]
-
 import { AceEditorDirective } from './ace-editor.directive';
 import { DemoComponent } from './demo.component';
 import { DemoRootComponent } from './demo-root.component';
@@ -28,7 +17,7 @@ import { DemoRootComponent } from './demo-root.component';
 import { routes } from './demo.routes';
 import {
   MaterialDesignFrameworkModule, Bootstrap4FrameworkModule,
-  Bootstrap3FrameworkModule, NoFrameworkModule
+  NoFrameworkModule
 } from 'angular-json-form-engine';
 
 @NgModule({
@@ -40,19 +29,9 @@ import {
     RouterModule.forRoot(routes),
     MaterialDesignFrameworkModule,
     Bootstrap4FrameworkModule,
-    Bootstrap3FrameworkModule,
     NoFrameworkModule
   ],
   bootstrap: [DemoRootComponent]
 })
-
-// Here, by loading 4 frameworks in JsonSchemaFormModule.forRoot(), the first,
-// `NoFrameworkModule`, will be set active by default. But any of the 4 can
-// be activated later by passing the framework's name to the <json-schema-form>
-// tag's `framework` input. The names of these 4 frameworks are:
-//   'no-framework'
-//   'material-design-framework',
-//   'bootstrap-3-framework'
-//   'bootstrap-4-framework'
 
 export class DemoModule { }

@@ -7,7 +7,7 @@ import {
   buildFormGroupTemplate,
   formatFormData,
   getControl
-  } from './shared/form-group.functions';
+} from './shared/form-group.functions';
 import { buildLayout, getLayoutNode } from './shared/layout.functions';
 import { buildSchemaFromData, buildSchemaFromLayout, removeRecursiveReferences } from './shared/json-schema.functions';
 import { enValidationMessages } from './locale/en-validation-messages';
@@ -18,27 +18,25 @@ import {
   forEach,
   hasOwn,
   toTitleCase
-  } from './shared/utility.functions';
+} from './shared/utility.functions';
 import {
   hasValue,
   isArray,
   isDefined,
   isEmpty,
   isObject
-  } from './shared/validator.functions';
+} from './shared/validator.functions';
 import { Injectable } from '@angular/core';
 import { JsonPointer } from './shared/jsonpointer.functions';
 import { Subject } from 'rxjs';
 
-
-
 export interface TitleMapItem {
   name?: string; value?: any; checked?: boolean; group?: string; items?: TitleMapItem[];
 }
+
 export interface ErrorMessages {
   [control_name: string]: { message: string | Function | Object, code: string }[];
 }
-
 
 @Injectable()
 export class JsonSchemaFormService {
@@ -78,8 +76,7 @@ export class JsonSchemaFormService {
   layoutRefLibrary: any = { '': null }; // Library of layout nodes for adding to form
   templateRefLibrary: any = {}; // Library of formGroup templates for adding to form
   hasRootReference = false; // Does the form include a recursive reference to itself?
-
-  language = 'en-US'; // Does the form include a recursive reference to itself?
+  language = 'en-US';
 
   // Default global form options
   defaultFormOptions: any = {
@@ -135,9 +132,9 @@ export class JsonSchemaFormService {
   setLanguage(language: string = 'en-US') {
     this.language = language;
     const languageValidationMessages = {
-        fr: frValidationMessages,
-        en: enValidationMessages,
-        zh: zhValidationMessages
+      fr: frValidationMessages,
+      en: enValidationMessages,
+      zh: zhValidationMessages
     };
     const languageCode = language.slice(0, 2);
 
@@ -147,11 +144,11 @@ export class JsonSchemaFormService {
       cloneDeep(validationMessages);
   }
 
-  getData() { return this.data; }
+  // getData() { return this.data; }
 
-  getSchema() { return this.schema; }
+  // getSchema() { return this.schema; }
 
-  getLayout() { return this.layout; }
+  // getLayout() { return this.layout; }
 
   resetAllValues() {
     this.JsonFormCompatibility = false;
@@ -603,14 +600,14 @@ export class JsonSchemaFormService {
     return '/' + ctx.layoutIndex.join('/items/');
   }
 
-  isControlBound(ctx: any): boolean {
-    if (
-      !ctx.layoutNode || !isDefined(ctx.layoutNode.dataPointer) || !hasValue(ctx.dataIndex)
-    ) { return false; }
-    const controlGroup = this.getFormControlGroup(ctx);
-    const name = this.getFormControlName(ctx);
-    return controlGroup ? hasOwn(controlGroup.controls, name) : false;
-  }
+  // isControlBound(ctx: any): boolean {
+  //   if (
+  //     !ctx.layoutNode || !isDefined(ctx.layoutNode.dataPointer) || !hasValue(ctx.dataIndex)
+  //   ) { return false; }
+  //   const controlGroup = this.getFormControlGroup(ctx);
+  //   const name = this.getFormControlName(ctx);
+  //   return controlGroup ? hasOwn(controlGroup.controls, name) : false;
+  // }
 
   addItem(ctx: any, name?: string): boolean {
     if (
